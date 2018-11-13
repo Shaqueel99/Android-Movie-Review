@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">AndroidMovieReview</string>
+    <string name="app_name">Movie Rater</string>
+    <string name="eng">English</string>
+    <string name="chi">Chinese</string>
+    <string name="malay">Malay</string>
+    <string name="tamil">Tamil</string>
+    <string name="vio">Violence</string>
+    <string name="language">Language</string>
+    <string name="nsfaa">Not Suitable for all audience</string>
 </resources>
