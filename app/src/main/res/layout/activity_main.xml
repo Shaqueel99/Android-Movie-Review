@@ -65,6 +65,12 @@
                      android:layout_height="wrap_content"
                      android:text="@string/tamil"
                      android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/langname"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/langname"
+                     android:visibility="gone"
+                     android:onClick="onRadioButtonClicked"/>
     </RadioGroup>/>
     <TextView
             android:text="Release Date"
@@ -107,7 +113,7 @@
     <Button
             android:text="Add Movie"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/button"
+            android:layout_height="wrap_content" android:id="@+id/bt"
 
     />
 </LinearLayout>

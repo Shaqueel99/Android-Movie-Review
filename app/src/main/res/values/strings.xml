@@ -7,4 +7,5 @@
     <string name="vio">Violence</string>
     <string name="language">Language</string>
     <string name="nsfaa">Not Suitable for all audience</string>
+    <string name="langname">Langname</string>
 </resources>
