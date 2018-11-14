@@ -5,9 +5,11 @@ import android.os.Bundle
 
 import android.view.View
 import android.widget.*
+import com.example.mshaq.androidmoviereview.R.id.all
 
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.system.exitProcess
 
 
 open class MainActivity : AppCompatActivity() {
@@ -17,15 +19,36 @@ open class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bt.setOnClickListener {
+
             val editText2 = findViewById(R.id.editText2) as EditText
             val editText3 = findViewById(R.id.editText3) as EditText
             val editView5 = findViewById(R.id.editText5) as EditText
             val langname : RadioButton = findViewById(R.id.langname)
-            Toast.makeText(
-                this,
-                "Title = " + editText2.text + "\n" + "Overview = " + editText3.text + "\n" + "Language = " + langname.text + "\n" + "Release Date = " + editView5.text,
-                Toast.LENGTH_LONG
-            ).show()
+            val checknsfaa : CheckBox = findViewById(R.id.checknsfaa)
+            val checkvio : CheckBox = findViewById(R.id.checkvio)
+            val checkbadlang : CheckBox = findViewById(R.id.checkbadlang)
+
+            if (editText2.getText().toString().trim().equals("")) {
+                editText2.setError("Field empty")
+
+            }
+            if (editText3.getText().toString().trim().equals("")) {
+                editText3.setError("Field empty")
+
+            }
+            if (editText5.getText().toString().trim().equals("")) {
+                editText5.setError("Field empty")
+
+            }
+
+            else {
+                Toast.makeText(
+                    this,
+                    "Title = " + editText2.text + "\n" + "Overview = " + editText3.text + "\n" + "Language = " + langname.text + "\n" + "Release Date = " + editView5.text + "\n" + checknsfaa.text + checkbadlang.text + "\n" +checkvio.text,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
 
         }
     }
@@ -62,6 +85,9 @@ open class MainActivity : AppCompatActivity() {
             val checked: Boolean = view.isChecked
             val checkbox_vio = findViewById(R.id.checkbox_vio) as CheckBox
             val checkbox_language = findViewById(R.id.checkbox_language) as CheckBox
+            val checknsfaa : CheckBox = findViewById(R.id.checknsfaa)
+            val checkvio : CheckBox = findViewById(R.id.checkvio)
+            val checkbadlang : CheckBox = findViewById(R.id.checkbadlang)
 
 
             when (view.id) {
@@ -69,22 +95,26 @@ open class MainActivity : AppCompatActivity() {
                     if (checked) {
                         checkbox_vio.setVisibility(View.VISIBLE);
                         checkbox_language.setVisibility(View.VISIBLE);
+                        checknsfaa.text = "Suitable for all ages = False"+"\n" + "Reason"+"\n"
                     } else {
                         checkbox_vio.setVisibility(View.INVISIBLE);
                         checkbox_language.setVisibility(View.INVISIBLE);
+                        checknsfaa.text = "Suitable for all ages = True"
                     }
                 }
                 R.id.checkbox_vio -> {
                     if (checked) {
+                        checkvio.text = "Violence"
 
                     } else {
-
+                        checkvio.text = ""
                     }
                 }
                 R.id.checkbox_language -> {
                     if (checked) {
-
+                        checkbadlang.text = "Language"
                     } else {
+                        checkbadlang.text = ""
 
                     }
                 }
@@ -95,3 +125,4 @@ open class MainActivity : AppCompatActivity() {
 
 
 }
+

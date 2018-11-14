@@ -18,6 +18,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
+            android:hint="Enter the title of movie"
             android:text="Venom"
             android:id="@+id/editText2"/>
 
@@ -31,6 +32,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
+            android:hint="Enter a short description of the movie"
             android:text="When Eddie Brock acquires the powers of a symbiote, he will have to release his alter-ego 'Venom' to save his life"
 
             android:id="@+id/editText3"/>
@@ -49,6 +51,7 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/eng"
+                     android:checked="true"
                      android:onClick="onRadioButtonClicked"/>
         <RadioButton android:id="@+id/radio_chi"
                      android:layout_width="wrap_content"
@@ -77,6 +80,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:hint="Enter release date"
             android:id="@+id/textView5"/>
     <EditText
             android:layout_width="fill_parent"
@@ -88,6 +92,24 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="@string/nsfaa"
+              android:onClick="onCheckboxClicked"/>
+    <CheckBox android:id="@+id/checknsfaa"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/checknsfaa"
+              android:visibility="gone"
+              android:onClick="onCheckboxClicked"/>
+    <CheckBox android:id="@+id/checkvio"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/checkvio"
+              android:visibility="gone"
+              android:onClick="onCheckboxClicked"/>
+    <CheckBox android:id="@+id/checkbadlang"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/checkbadlang"
+              android:visibility="gone"
               android:onClick="onCheckboxClicked"/>
     <LinearLayout
             android:layout_width="match_parent"
