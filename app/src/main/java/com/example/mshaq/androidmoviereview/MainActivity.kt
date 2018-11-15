@@ -20,28 +20,30 @@ open class MainActivity : AppCompatActivity() {
 
         bt.setOnClickListener {
 
-            val editText2 = findViewById(R.id.editText2) as EditText
-            val editText3 = findViewById(R.id.editText3) as EditText
-            val editView5 = findViewById(R.id.editText5) as EditText
-            val langname : RadioButton = findViewById(R.id.langname)
-            val checknsfaa : CheckBox = findViewById(R.id.checknsfaa)
-            val checkvio : CheckBox = findViewById(R.id.checkvio)
-            val checkbadlang : CheckBox = findViewById(R.id.checkbadlang)
+        val editText2 = findViewById(R.id.editText2) as EditText
+        val editText3 = findViewById(R.id.editText3) as EditText
+        val editView5 = findViewById(R.id.editText5) as EditText
+        val langname : RadioButton = findViewById(R.id.langname)
+        val checknsfaa : CheckBox = findViewById(R.id.checknsfaa)
+        val checkvio : CheckBox = findViewById(R.id.checkvio)
+        val checkbadlang : CheckBox = findViewById(R.id.checkbadlang)
 
-            if (editText2.getText().toString().trim().equals("")) {
+            if(editText2.getText().toString().isBlank()) {
                 editText2.setError("Field empty")
 
             }
-            if (editText3.getText().toString().trim().equals("")) {
+
+            if (editText3.getText().toString().isBlank() ) {
                 editText3.setError("Field empty")
 
             }
-            if (editText5.getText().toString().trim().equals("")) {
+
+            if (editText5.getText().toString().isBlank()) {
                 editText5.setError("Field empty")
 
             }
 
-            else {
+            if(editText5.getText().toString().isNotBlank() and editText2.getText().toString().isNotBlank() and editText3.getText().toString().isNotBlank() ) {
                 Toast.makeText(
                     this,
                     "Title = " + editText2.text + "\n" + "Overview = " + editText3.text + "\n" + "Language = " + langname.text + "\n" + "Release Date = " + editView5.text + "\n" + checknsfaa.text + checkbadlang.text + "\n" +checkvio.text,
@@ -50,8 +52,8 @@ open class MainActivity : AppCompatActivity() {
             }
 
 
-        }
     }
+}
     open fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
