@@ -1,11 +1,20 @@
 package com.example.mshaq.androidmoviereview
 
+import android.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.TextKeyListener.clear
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.RadioButton
 
+import android.content.Intent
 import android.view.View
 import android.widget.*
 import com.example.mshaq.androidmoviereview.R.id.all
+import com.example.mshaq.androidmoviereview.R.layout.viewmovie
 
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,26 +23,24 @@ import kotlin.system.exitProcess
 
 open class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        bt.setOnClickListener {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menuadd, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
-        val editText2 = findViewById(R.id.editText2) as EditText
-        val editText3 = findViewById(R.id.editText3) as EditText
-        val editView5 = findViewById(R.id.editText5) as EditText
-        val langname : RadioButton = findViewById(R.id.langname)
-        val checknsfaa : CheckBox = findViewById(R.id.checknsfaa)
-        val checkvio : CheckBox = findViewById(R.id.checkvio)
-        val checkbadlang : CheckBox = findViewById(R.id.checkbadlang)
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.menuAdd) {
 
-            if(editText2.getText().toString().isBlank()) {
+
+
+
+            if (editText2.getText().toString().isBlank()) {
                 editText2.setError("Field empty")
 
             }
 
-            if (editText3.getText().toString().isBlank() ) {
+            if (editText3.getText().toString().isBlank()) {
                 editText3.setError("Field empty")
 
             }
@@ -43,17 +50,40 @@ open class MainActivity : AppCompatActivity() {
 
             }
 
-            if(editText5.getText().toString().isNotBlank() and editText2.getText().toString().isNotBlank() and editText3.getText().toString().isNotBlank() ) {
-                Toast.makeText(
-                    this,
-                    "Title = " + editText2.text + "\n" + "Overview = " + editText3.text + "\n" + "Language = " + langname.text + "\n" + "Release Date = " + editView5.text + "\n" + checknsfaa.text + checkbadlang.text + "\n" +checkvio.text,
-                    Toast.LENGTH_LONG
-                ).show()
+            if (editText5.getText().toString().isNotBlank() and editText2.getText().toString().isNotBlank() and editText3.getText().toString().isNotBlank()) {
+                  ViewmovieActivity()
             }
+        } else if (item?.itemId == R.id.menuClear) {
+            editText2.text.clear()
+            editText3.text.clear()
+            editText5.text.clear()
+            checkbox_nsfaa.isChecked = false
+            checkbox_vio.isChecked = false
+            checkbox_language.isChecked = false
+            checkbox_language.visibility = View.GONE
+            checkbox_vio.visibility = View.GONE
+            radio_eng.isChecked = true
 
+        }
+
+
+            return super.onOptionsItemSelected(item)
+        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val actionBar = supportActionBar
+
+        actionBar!!.title = "Movie Rater"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
     }
-}
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     open fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
@@ -97,16 +127,16 @@ open class MainActivity : AppCompatActivity() {
                     if (checked) {
                         checkbox_vio.setVisibility(View.VISIBLE);
                         checkbox_language.setVisibility(View.VISIBLE);
-                        checknsfaa.text = "Suitable for all ages = False"+"\n" + "Reason"+"\n"
+                        checknsfaa.text = "No"
                     } else {
                         checkbox_vio.setVisibility(View.INVISIBLE);
                         checkbox_language.setVisibility(View.INVISIBLE);
-                        checknsfaa.text = "Suitable for all ages = True"
+                        checknsfaa.text = "Yes"
                     }
                 }
                 R.id.checkbox_vio -> {
                     if (checked) {
-                        checkvio.text = "Violence"
+                        checkvio.text = "(Violence)"
 
                     } else {
                         checkvio.text = ""
@@ -114,7 +144,7 @@ open class MainActivity : AppCompatActivity() {
                 }
                 R.id.checkbox_language -> {
                     if (checked) {
-                        checkbadlang.text = "Language"
+                        checkbadlang.text = "(Language)"
                     } else {
                         checkbadlang.text = ""
 
@@ -124,7 +154,34 @@ open class MainActivity : AppCompatActivity() {
             }
         }
     }
+private fun ViewmovieActivity(){
+    val entername = editText2.text
+    val name = entername.toString()
+    val enterdescription = editText3.text
+    val description = enterdescription.toString()
+    val enterlang = langname.text
+    val lang = enterlang.toString()
+    val enterdate = editText5.text
+    val date = enterdate.toString()
+    val nsfaacheck = checknsfaa.text
+    val nsfaa = nsfaacheck.toString()
+    val viocheck = checkvio.text
+    val vio = viocheck.toString()
+    val badlangcheck = checkbadlang.text
+    val badlang = badlangcheck.toString()
 
+    val viewmovie = Intent(this,ViewmovieActivity::class.java)
+    viewmovie.putExtra("name",name)
+    viewmovie.putExtra("description",description)
+    viewmovie.putExtra("language",lang)
+    viewmovie.putExtra("releasedate",date)
+    viewmovie.putExtra("nsfaa",nsfaa)
+    viewmovie.putExtra("violence",vio)
+    viewmovie.putExtra("badlang",badlang)
+    startActivity(viewmovie)
+}
 
 }
+
+
 

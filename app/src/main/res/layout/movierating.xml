@@ -5,10 +5,10 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity" android:gravity="top">
+        tools:context=".RatemovieActivity" android:gravity="top">
 
     <TextView
-            android:text="Enter review for the movie: Venom"
+            android:text="Enter review for the movie"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -26,7 +26,7 @@
             android:maxLines="5"
             android:lines="5"
 
-            android:id="@+id/editText3" android:inputType="textMultiLine"
+            android:id="@+id/userText" android:inputType="textMultiLine"
             android:selectAllOnFocus="false" android:singleLine="false"/>
 
 

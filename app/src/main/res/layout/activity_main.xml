@@ -74,7 +74,7 @@
                      android:text="@string/langname"
                      android:visibility="gone"
                      android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>/>
+    </RadioGroup>
     <TextView
             android:text="Release Date"
             android:layout_width="fill_parent"
@@ -132,10 +132,6 @@
               android:visibility="gone"
               android:onClick="onCheckboxClicked"/>
     </LinearLayout>
-    <Button
-            android:text="Add Movie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/bt"
 
-    />
+
 </LinearLayout>

@@ -6,13 +6,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".ViewmovieActivity">
     <ImageView
 
 
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-          android:src ="@drawable/Camera"
+          android:src ="@drawable/camera"
             android:id="@+id/img"/>
 
     <TextView
@@ -25,29 +25,51 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:text=""
             android:hint="Enter the title of movie"
-            android:text="Venom"
-            android:id="@+id/editText2"/>
+            android:id="@+id/titleText2"/>
+
+
+
+
+
 
 
     <TextView
-            android:text="Overview:"
+            android:text="Reviews:"
             android:textSize="12dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
 
 
-            android:id="@+id/textView3"/>
+            android:id="@+id/textView7"/>
+    /> <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/stars"
+        android:visibility="gone"
+/>
+    <TextView
+            android:id="@+id/context_menu"
+            android:text="No Reviews yet. \nLong press here to add your review"
+            android:textSize="18dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:text="Overview:"
+            android:textSize="12dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:textSize="18dp"
             android:hint="Enter a short description of the movie"
-            android:text="When Eddie Brock acquires the powers of a symbiote, he will have to release his alter-ego 'Venom' to save his life"
+            android:text="This movie involves many people hitting each other"
 
-            android:id="@+id/editText3"/>
+            android:id="@+id/titleText3"/>
     <TextView
             android:text="Language:"
             android:layout_width="fill_parent"
@@ -61,7 +83,7 @@
 
             android:textSize="18dp"
             android:text="English"
-            android:id="@+id/editText4"/>
+            android:id="@+id/titleText4"/>
 
     <TextView
             android:text="Release Date:"
@@ -75,8 +97,8 @@
             android:layout_height="wrap_content"
 
             android:textSize="18dp"
-            android:text="03-10-2018"
-            android:id="@+id/editText5"/>
+            android:text="2010"
+            android:id="@+id/titleText5"/>
     <TextView
             android:text="Suitable for children below 13:"
             android:layout_width="fill_parent"
@@ -89,7 +111,8 @@
             android:layout_height="wrap_content"
 
             android:textSize="18dp"
-            android:text="Yes"
-            android:id="@+id/editText6"/>
+            android:text="No (Violence)"
+            android:id="@+id/titleText6"/>
+
 
 </LinearLayout>
